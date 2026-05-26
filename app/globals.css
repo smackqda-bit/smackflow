@@ -95,6 +95,12 @@
   }
 }
 
-.h1mdx{
-  margin-top: 200px;
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

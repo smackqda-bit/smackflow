@@ -1,7 +1,7 @@
 
 export default function Footer() {
     return(
-        <div className="lg:mx-10 mx-5 my-5">
+        <div className="lg:mx-10 mx-5 my-3">
             
             <div className="flex-col sm:flex sm:justify-between items-center mt-10">
                  <a  href="#header">

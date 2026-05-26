@@ -31,9 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html
+
       
       lang="en"
-      className={cn("scroll-smooth h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
+      className={cn("no-scrollbar scroll-smooth h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
       <body className="max-w-7xl mx-auto">{children}</body>
     </html>
