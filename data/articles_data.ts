@@ -3,58 +3,52 @@ import { Iarticle } from "@/interfaces/article_interface";
 export const articlesDATA: Iarticle[] = [
   {
     id: 1,
-    slug: "ai-for-accountants",
-    title: "ИИ для бухгалтеров в 2026 году",
+    slug: "best-ai-tools-for-web-designers",
+    title: "Лучшие AI-инструменты для web-дизайнеров",
     description:
-      "Лучшие AI-инструменты и рабочие процессы для автоматизации финансовых задач.",
+      "Подборка нейросетей для создания UI, лендингов, wireframe и дизайна сайтов.",
     author: "Команда Smackflow",
+    tag: "#дизайн",
+    date: "2026-01-05",
   },
   {
     id: 2,
-    slug: "chatgpt-prompts-seo",
-    title: "Лучшие ChatGPT-промпты для SEO",
+    slug: "ai-for-graphic-designers",
+    title: "Нейросети для графического дизайнера",
     description:
-      "Подборка эффективных промптов для создания SEO-контента.",
+      "Топ AI-сервисов для создания баннеров, логотипов, иллюстраций и бренд-дизайна.",
     author: "Команда Smackflow",
+    tag: "#дизайн",
+    date: "2026-01-12",
   },
   {
     id: 3,
-    slug: "ai-for-marketers",
-    title: "AI-инструменты для маркетинга",
+    slug: "midjourney-for-designers",
+    title: "Как дизайнеру использовать Midjourney",
     description:
-      "Как маркетологи могут использовать ИИ для рекламы, контента и автоматизации.",
+      "Практические способы генерации концептов, moodboard и визуальных идей через Midjourney.",
     author: "Команда Smackflow",
+    tag: "#дизайн",
+    date: "2026-01-19",
   },
   {
     id: 4,
-    slug: "chatgpt-vs-claude",
-    title: "ChatGPT против Claude",
+    slug: "figma-ai-tools",
+    title: "Figma AI: как ускорить работу дизайнера",
     description:
-      "Сравнение двух ведущих AI-моделей для написания текстов и программирования.",
+      "Обзор AI-функций и плагинов Figma для автоматизации UI/UX-дизайна.",
     author: "Команда Smackflow",
+    tag: "#дизайн",
+    date: "2026-01-26",
   },
   {
     id: 5,
-    slug: "chatgpt-vs-claudeЙ",
-    title: "ChatGPT против Claude",
+    slug: "chatgpt-for-designers",
+    title: "Как ChatGPT помогает дизайнерам",
     description:
-      "Сравнение двух ведущих AI-моделей для написания текстов и программирования.",
+      "Использование ChatGPT для UX-текстов, генерации идей, структуры сайтов.",
     author: "Команда Smackflow",
-  },
-  {
-    id: 6,
-    slug: "chatgpt-vs-claudeВ",
-    title: "ChatGPT против Claude",
-    description:
-      "Сравнение двух ведущих AI-моделей для написания текстов и программирования.",
-    author: "Команда Smackflow",
-  },
-  {
-    id: 7,
-    slug: "chatgpt-vs-claudeЫ",
-    title: "ChatGPT против Claude",
-    description:
-      "Сравнение двух ведущих AI-моделей для написания текстов и программирования.",
-    author: "Команда Smackflow",
+    tag: "#дизайн",
+    date: "2026-02-02",
   },
 ];

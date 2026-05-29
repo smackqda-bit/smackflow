@@ -10,7 +10,17 @@ import {
 
 import { Iarticle } from "@/interfaces/article_interface"
 import Link from "next/link"
-export function ArticleCard({title, author, description, slug}:Iarticle) {
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString)
+
+  return new Intl.DateTimeFormat("ru-RU", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(date)
+}
+export function ArticleCard({title, author, description, slug, date}:Iarticle) {
   return (
     <Card size="sm"  className="mx-auto w-full   ">
       <CardHeader>
@@ -25,12 +35,16 @@ export function ArticleCard({title, author, description, slug}:Iarticle) {
         </p>
       </CardContent>
       <CardFooter>
+      <div className="flex justify-between items-center w-full">
         <Link href={`/blog/${slug}`}>
-            <Button variant="outline" size="sm" className="w-full rounded-[10px]">
+          <Button variant="outline" size="sm" className="rounded-[10px]">
             Читать
-            </Button>
+          </Button>
         </Link>
-      </CardFooter>
+
+        <p className="text-muted-foreground">{formatDate(date)}</p>
+      </div>
+</CardFooter>
     </Card>
   )
 }

@@ -12,7 +12,7 @@ import DescriptionUnderPagination from "@/components/sections/DescriptionUnderPa
 
 export default function Home() {
   const searchParams = useSearchParams()
-  const query = searchParams.get("query")?.toLowerCase() || ""
+  const query = searchParams.get("query")?.toLowerCase().trim() || ""
 
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(6)
@@ -27,6 +27,7 @@ export default function Home() {
 
     update()
     window.addEventListener("resize", update)
+
     return () => window.removeEventListener("resize", update)
   }, [])
 
@@ -36,11 +37,22 @@ export default function Home() {
   }, [itemsPerPage, query])
 
   // 🔎 filter articles
-  const filteredArticles = articlesDATA.filter((item) =>
-    item.title.toLowerCase().includes(query) ||
-    item.description.toLowerCase().includes(query) ||
-    item.author.toLowerCase().includes(query)
-  )
+  const filteredArticles = articlesDATA.filter((item) => {
+    // поиск только по тегу: #дизайн
+    if (query.startsWith("#")) {
+      const tagQuery = query.slice(1).trim()  
+
+      return item.tag.toLowerCase().includes(tagQuery)
+    }
+
+    // обычный поиск
+    return (
+      item.title.toLowerCase().includes(query) ||
+      item.description.toLowerCase().includes(query) ||
+      item.author.toLowerCase().includes(query) ||
+      item.tag.toLowerCase().includes(query)
+    )
+  })
 
   const totalPages = Math.max(
     1,
@@ -73,6 +85,8 @@ export default function Home() {
                 description={item.description}
                 id={item.id}
                 slug={item.slug}
+                tag={item.tag}
+                date={item.date}
               />
             ))
           ) : (
@@ -80,6 +94,7 @@ export default function Home() {
               <p className="text-3xl text-muted-foreground">
                 Ничего не найдено
               </p>
+
               <p className="text-lg mt-2 text-muted-foreground">
                 Попробуйте изменить запрос поиска
               </p>
