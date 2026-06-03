@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { articlesDATA } from "@/data/articles_data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Footer from "@/components/ui/Footer";
 
 export const dynamicParams = false;
 
@@ -91,6 +92,7 @@ export default async function Page({
     );
 
     return (
+      <div>
       <main className="mx-auto px-5 lg:px-10   py-6  md:py-12">
         {/* HEADER */}
         <header className="mb-12 border-b border-white pb-8" id="header">
@@ -135,6 +137,8 @@ export default async function Page({
           
           </div>
       </main>
+      <Footer/>
+      </div>
     );
   } catch {
     notFound();
