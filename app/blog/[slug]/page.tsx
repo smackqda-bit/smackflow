@@ -44,7 +44,7 @@ export async function generateMetadata(
       description,
       url,
       type: "article",
-      siteName: "smackflow.space",
+      siteName: "SmackFlow",
       
     },
     twitter: {
@@ -53,6 +53,14 @@ export async function generateMetadata(
       description,
       
     },
+     keywords: [
+    "AI",
+    "нейросети",
+    "искусственный интеллект",
+    "ChatGPT",
+    "автоматизация",
+    "гайды",
+  ],
   };
 }
 const formatDate = (dateString: string) => {
@@ -83,7 +91,7 @@ export default async function Page({
     );
 
     return (
-      <main className="mx-auto max-w-7xl px-6 py-12">
+      <main className="mx-auto px-5 lg:px-10   py-6  md:py-12">
         {/* HEADER */}
         <header className="mb-12 border-b border-white pb-8">
           <div className="flex justify-between items-center">
@@ -98,7 +106,7 @@ export default async function Page({
             </Link>
           </div>
 
-          <h1 className="mt-6 text-5xl font-semibold text-white">
+          <h1 className="mt-6 text-3xl sm:text-5xl font-semibold text-white">
             {articleMeta.title}
           </h1>
 

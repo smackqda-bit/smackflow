@@ -17,8 +17,31 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "SmackFlow",
-  description: "SmackFlow — это современная платформа об искусственном интеллекте и нейросетях, созданная для всех: от дизайнеров и разработчиков до маркетологов, студентов и офисных специалистов. Здесь вы найдёте практические гайды, полезные AI-инструменты, реальные кейсы и простые объяснения сложных технологий, которые помогают автоматизировать задачи, повышать продуктивность и открывать новые возможности в работе и повседневной жизни.",
-   metadataBase: new URL("https://smackflow.space")
+  description: "SmackFlow — платформа об AI и нейросетях: гайды, инструменты и кейсы для работы и обучения.",
+  keywords: [
+    "AI",
+    "нейросети",
+    "искусственный интеллект",
+    "ChatGPT",
+    "автоматизация",
+    "гайды",
+  ],
+
+  openGraph: {
+    title: "SmackFlow",
+    description:
+      "Платформа об AI и нейросетях: гайды, инструменты и кейсы.",
+    url: "https://smackflow.space",
+    siteName: "SmackFlow",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "SmackFlow",
+    description:
+      "Платформа об AI и нейросетях: гайды, инструменты и кейсы.",
+  },
 }
 export const viewport: Viewport = {
   width: "device-width",
