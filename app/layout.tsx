@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/ui/Footer";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -60,7 +61,9 @@ export default function RootLayout({
       lang="en"
       className={cn("no-scrollbar scroll-smooth h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body className="max-w-7xl mx-auto">{children}</body>
+      <body className="max-w-7xl mx-auto">
+        {children}
+        </body>
     </html>
   );
 }

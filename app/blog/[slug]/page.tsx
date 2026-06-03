@@ -93,7 +93,7 @@ export default async function Page({
     return (
       <main className="mx-auto px-5 lg:px-10   py-6  md:py-12">
         {/* HEADER */}
-        <header className="mb-12 border-b border-white pb-8">
+        <header className="mb-12 border-b border-white pb-8" id="header">
           <div className="flex justify-between items-center">
             <span className="inline-flex rounded-full border border-white px-3 py-1 text-sm text-muted-foreground">
               {articleMeta.tag}
@@ -123,6 +123,17 @@ export default async function Page({
 
         {/* MDX CONTENT */}
         <Article />
+        <div className="flex justify-start items-center gap-5">
+          <Link href="/">
+            <Button variant="outline" size="sm" className="rounded-[10px]">
+                Вернуться назад
+            </Button>
+          </Link>
+          <Link href={'#header'}>
+            <Button  variant="outline" size="sm" className="rounded-[10px]">Вверх</Button>
+          </Link>
+          
+          </div>
       </main>
     );
   } catch {
