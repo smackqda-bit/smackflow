@@ -77,7 +77,7 @@ export default function Home() {
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5 lg:mx-10">
 
           {currentItems.length > 0 ? (
-            currentItems.map((item) => (
+            currentItems.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((item) => (
               <ArticleCard
                 key={item.slug}
                 title={item.title}

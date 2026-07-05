@@ -24,13 +24,13 @@ export function ArticleCard({title, author, description, slug, date}:Iarticle) {
   return (
     <Card size="sm"  className="mx-auto w-full   ">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="line-clamp-1">{title}</CardTitle>
         <CardDescription>
         {author}
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <p>
+        <p className="line-clamp-2">
           {description}
         </p>
       </CardContent>

@@ -46,6 +46,7 @@ export async function generateMetadata(
       url,
       type: "article",
       siteName: "SmackFlow",
+      publishedTime: articleMeta.date,
       
     },
     twitter: {
@@ -93,9 +94,9 @@ export default async function Page({
 
     return (
       <div>
-      <main className="mx-auto px-5 lg:px-10   py-6  md:py-12">
+      <main className="mx-auto px-5 lg:px-10   py-6  md:py-12 " id="header">
         {/* HEADER */}
-        <header className="mb-12 border-b border-white pb-8" id="header">
+        <header className="mb-12 border-b border-white pb-8" >
           <div className="flex justify-between items-center">
             <span className="inline-flex rounded-full border border-white px-3 py-1 text-sm text-muted-foreground">
               {articleMeta.tag}
