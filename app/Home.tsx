@@ -38,36 +38,38 @@ export default function Home() {
 
   // 🔎 filter articles
   const filteredArticles = articlesDATA.filter((item) => {
-    // поиск только по тегу: #дизайн
-    if (query.startsWith("#")) {
-      const tagQuery = query.slice(1).trim()  
+  if (query.startsWith("#")) {
+    const tagQuery = query.slice(1).trim()
 
-      return item.tag.toLowerCase().includes(tagQuery)
-    }
+    return item.tag.toLowerCase().includes(tagQuery)
+  }
 
-    // обычный поиск
-    return (
-      item.title.toLowerCase().includes(query) ||
-      item.description.toLowerCase().includes(query) ||
-      item.author.toLowerCase().includes(query) ||
-      item.tag.toLowerCase().includes(query)
-    )
-  })
-
-  const totalPages = Math.max(
-    1,
-    Math.ceil(filteredArticles.length / itemsPerPage)
+  return (
+    item.title.toLowerCase().includes(query) ||
+    item.description.toLowerCase().includes(query) ||
+    item.author.toLowerCase().includes(query) ||
+    item.tag.toLowerCase().includes(query)
   )
+})
 
-  const safePage = Math.min(currentPage, totalPages)
+// Сортировка всего списка: новые статьи сверху
+const sortedArticles = [...filteredArticles].sort(
+  (a, b) => Date.parse(b.date) - Date.parse(a.date)
+)
 
-  const startIndex = (safePage - 1) * itemsPerPage
+const totalPages = Math.max(
+  1,
+  Math.ceil(sortedArticles.length / itemsPerPage)
+)
 
-  const currentItems = filteredArticles.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  )
+const safePage = Math.min(currentPage, totalPages)
+const startIndex = (safePage - 1) * itemsPerPage
 
+// Пагинация выполняется после сортировки
+const currentItems = sortedArticles.slice(
+  startIndex,
+  startIndex + itemsPerPage
+)
   return (
     <div className="min-h-screen flex flex-col">
       <Header setCurrentPage={setCurrentPage} />
@@ -77,7 +79,7 @@ export default function Home() {
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5 lg:mx-10">
 
           {currentItems.length > 0 ? (
-            currentItems.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((item) => (
+            currentItems.map((item) => (
               <ArticleCard
                 key={item.slug}
                 title={item.title}
