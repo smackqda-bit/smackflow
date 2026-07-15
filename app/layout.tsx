@@ -63,43 +63,18 @@ export default function RootLayout({
       className={cn("no-scrollbar scroll-smooth h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
      <head>
-        <Script id="yandex-metrika" strategy="afterInteractive">
+        <Script id="yandex-metrika" strategy="afterInteractive" type="text/javascript">
     {`
       (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){
-          (m[i].a=m[i].a||[]).push(arguments)
-        };
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110750178', 'ym');
 
-        for (var j = 0; j < document.scripts.length; j++) {
-          if (document.scripts[j].src === r) {
-            return;
-          }
-        }
-
-        k=e.createElement(t);
-        a=e.getElementsByTagName(t)[0];
-        k.async=1;
-        k.src=r;
-        a.parentNode.insertBefore(k,a);
-
-      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110750178", "ym");
-
-      ym(110750178, "init", {
-        defer: true,
-        ssr: true,
-        webvisor: true,
-        clickmap: true,
-        ecommerce: "dataLayer",
-        referrer: document.referrer,
-        url: location.href,
-        accurateTrackBounce: true,
-        trackLinks: true
-      });
+    ym(110750178, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
     `}
   </Script>
-      </head>
-      <body className="max-w-7xl mx-auto">
         <noscript>
     <div>
       <img
@@ -109,6 +84,10 @@ export default function RootLayout({
       />
     </div>
   </noscript>
+
+      </head>
+      <body className="max-w-7xl mx-auto">
+        
         {children}
      
         </body>
