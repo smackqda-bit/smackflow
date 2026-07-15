@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Script from "next/script";
-import YandexMetrika from "@/components/YandexMetrika";
+
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -86,12 +86,15 @@ export default function RootLayout({
       })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110750178", "ym");
 
       ym(110750178, "init", {
-      ssr: true,
-      webvisor: true,
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
-      ecommerce: "dataLayer",
+        defer: true,
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true
       });
     `}
   </Script>
@@ -107,7 +110,7 @@ export default function RootLayout({
     </div>
   </noscript>
         {children}
-        <YandexMetrika/>
+     
         </body>
     </html>
   );
