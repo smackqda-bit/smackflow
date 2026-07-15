@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
+import Script from "next/script";
+import YandexMetrika from "@/components/YandexMetrika";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -58,11 +59,55 @@ export default function RootLayout({
     <html
 
       
-      lang="en"
+      lang="ru"
       className={cn("no-scrollbar scroll-smooth h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
+     <head>
+        <Script id="yandex-metrika" strategy="afterInteractive">
+    {`
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){
+          (m[i].a=m[i].a||[]).push(arguments)
+        };
+        m[i].l=1*new Date();
+
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+
+        k=e.createElement(t);
+        a=e.getElementsByTagName(t)[0];
+        k.async=1;
+        k.src=r;
+        a.parentNode.insertBefore(k,a);
+
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110750178", "ym");
+
+      ym(110750178, "init", {
+      ssr: true,
+      webvisor: true,
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      ecommerce: "dataLayer",
+      });
+    `}
+  </Script>
+      </head>
       <body className="max-w-7xl mx-auto">
+        <noscript>
+    <div>
+      <img
+        src="https://mc.yandex.ru/watch/110750178"
+        style={{ position: "absolute", left: "-9999px" }}
+        alt=""
+      />
+    </div>
+  </noscript>
         {children}
+        <YandexMetrika/>
         </body>
     </html>
   );
