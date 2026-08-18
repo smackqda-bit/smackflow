@@ -14,6 +14,16 @@ interface Props {
 }
 
 export function Paginationdown({ currentPage, totalPages, setCurrentPage }: Props) {
+  const visiblePagesCount = Math.min(3, totalPages)
+  const firstVisiblePage = Math.min(
+    Math.max(currentPage - 1, 1),
+    totalPages - visiblePagesCount + 1
+  )
+  const visiblePages = Array.from(
+    { length: visiblePagesCount },
+    (_, index) => firstVisiblePage + index
+  )
+
   return (
     <Pagination>
       <PaginationContent>
@@ -29,9 +39,7 @@ export function Paginationdown({ currentPage, totalPages, setCurrentPage }: Prop
 />
 </PaginationItem>
 
-        {Array.from({ length: totalPages }).map((_, i) => {
-          const page = i + 1  
-
+        {visiblePages.map((page) => {
           return (
             <PaginationItem key={page}>
               <PaginationLink

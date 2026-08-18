@@ -93,8 +93,8 @@ export default async function Page({
     );
 
     return (
-      <div>
-      <main className="mx-auto px-5 lg:px-10   py-6  md:py-12 " id="header">
+      <div className="min-h-screen flex flex-col">
+      <main className="flex-1 mx-auto px-5 lg:px-10 py-6 md:py-12" id="header">
         {/* HEADER */}
         <header className="mb-12 border-b border-white pb-8" >
           <div className="flex justify-between items-center">
@@ -132,13 +132,13 @@ export default async function Page({
                 Вернуться назад
             </Button>
           </Link>
-          <Link href={'#header'}>
-            <Button  variant="outline" size="sm" className="rounded-[10px]">Вверх</Button>
-          </Link>
+          <Button asChild variant="outline" size="sm" className="rounded-[10px]">
+            <a href="#header">Вверх</a>
+          </Button>
           
           </div>
       </main>
-      <Footer/>
+      <Footer />
       </div>
     );
   } catch {
